@@ -13,7 +13,7 @@ d = str(date.day)
 
 urls = ("https://www.daytonlatinmass.org/wp-content/uploads/{y}/{m}/{y}-{m}-{d}.pdf".format(y = y, m = m.zfill(2), d = d.zfill(2)), 
         "http://www.emmanuelcatholic.com/wp-content/uploads/{year}/{m}/Bulletin-{m}{d}{y}.pdf".format(year = y, y = y[-2:], m = m.zfill(2), d = d.zfill(2)), 
-        "https://daytonxii.org/wp-content/uploads/{y}/{m}/{month}-{d}-{y}-Bulletin.pdf".format(y = y, m = m, d = d, month = date.strftime("%B")),
+        "https://daytonxii.org/wp-content/uploads/{y}/{m}/{month}-{d}-{y}-Bulletin.pdf".format(y = y, m = m.zfill(2), d = d, month = date.strftime("%B")),
         "https://www.byzantinecolumbus.com/bulletins/b{y}{m}{d}.pdf".format(y=y, m=m.zfill(2), d=d.zfill(2)) )
 
 for url in urls:
