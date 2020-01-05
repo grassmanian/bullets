@@ -1,7 +1,15 @@
 #!/usr/bin/python3
 import requests
 
-response = requests.get("https://www.daytonlatinmass.org/wp-content/uploads/2019/12/2019-12-29.pdf")
+urls = ("https://www.daytonlatinmass.org/wp-content/uploads/2019/12/2019-12-29.pdf", 
+        "http://www.emmanuelcatholic.com/wp-content/uploads/2019/12/Bulletin-122919.pdf",
+        "https://daytonxii.org/wp-content/uploads/2020/01/January-5-2020-Bulletin.pdf"
+        "https://www.byzantinecolumbus.com/bulletins/b20191229.pdf")
 
-with open('/tmp/temp.pdf', 'wb') as f:
-    f.write(response.content)
+for url in urls:
+    response = requests.get(url)
+    filename = response.url
+    last = filename.rfind('/')
+
+    with open(filename[last+1:], 'wb') as f:
+        f.write(response.content)
