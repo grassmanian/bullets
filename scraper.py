@@ -7,7 +7,8 @@ urls = ("https://www.daytonlatinmass.org/wp-content/uploads/2019/12/2019-12-29.p
         "https://www.byzantinecolumbus.com/bulletins/b20191229.pdf")
 
 for url in urls:
-    response = requests.get(url)
+    response = requests.get(url, headers={ "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36" })
+    print(response.status_code)
     filename = response.url
     last = filename.rfind('/')
 
