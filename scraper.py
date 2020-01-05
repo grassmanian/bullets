@@ -19,7 +19,7 @@ urls = ("https://www.daytonlatinmass.org/wp-content/uploads/{y}/{m}/{y}-{m}-{d}.
 for url in urls:
     response = requests.get(url, headers={ "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36" })
     # if this prints something other than 200, be wary
-    if response.status_code == 200:
+    if response.status_code != 200:
         print(url, response.status_code)
     filename = response.url
     last = filename.rfind('/')
